@@ -1,5 +1,13 @@
-Values at iteration 0 are correct.
-   Student/correct solution:
+Values at iteration 0 are NOT correct.
+   Student solution:
+ values_k_0: """
+            0.0000
+            5.6250
+           10.0000
+"""
+
+
+   Correct solution:
  values_k_0: """
             0.0000
             0.0000

@@ -1,5 +1,15 @@
-Values at iteration 0 are correct.
-   Student/correct solution:
+Values at iteration 0 are NOT correct.
+   Student solution:
+ values_k_0: """
+            0.0000       7.2000      10.0000       7.2000       5.1840
+            0.0000       5.1840   __________       5.1840       3.7325
+            0.0000       0.7200       1.0000       0.7200       0.5184
+            0.0000       0.5184   __________   __________       0.3732
+            0.0000       0.0000       0.0000       0.0000       0.0000
+"""
+
+
+   Correct solution:
  values_k_0: """
             0.0000       0.0000       0.0000       0.0000       0.0000
             0.0000       0.0000   __________       0.0000       0.0000

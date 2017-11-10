@@ -42,6 +42,8 @@ class ValueIterationAgent(ValueEstimationAgent):
         self.discount = discount
         self.iterations = iterations
         self.values = util.Counter() # A Counter is a dict with default 0
+        self.lastValue = util.Counter() # dict containing k-1 value for state
+        self.policy = util.Counter()
 
         # Write value iteration code here
         "*** YOUR CODE HERE ***"
@@ -53,6 +55,7 @@ class ValueIterationAgent(ValueEstimationAgent):
         #possibleActions = self.mdp.getPossibleActions(startState)
         #transitionStates = self.mdp.getTransitionStatesAndProbs(startState,possibleActions[0])
         allStates = self.mdp.getStates()
+        allStates.reverse()
 
         terminalState = None
         canGoTerminal = None
@@ -62,28 +65,57 @@ class ValueIterationAgent(ValueEstimationAgent):
         #print "Transition states and probs from terminal state ",transitionStates
         #print "All the states are ",allStates
         #print "the reward from moving from start to next is ",reward
+        k=0
+        while k < iterations:
+            for state in allStates:
+                value=-1
+                tmpPolicy=None
+                if self.mdp.isTerminal(state):
+                    None
+
+                    #terminalState=state
+                    #do nothing
+                else:
+                    possibleNextActions = self.mdp.getPossibleActions(state)
+                    for action in possibleNextActions:
+                        possibleTransitions = self.mdp.getTransitionStatesAndProbs(state,action)
+                        #print "The posssible action from ",state," is ",action," with transitions ",possibleTransitions
+                        for transition in possibleTransitions:
+                            thisReward = self.mdp.getReward(state, action, transition)
+                            if self.mdp.isTerminal(transition[0]):
+                                value=thisReward
+                                print "Moving ",state," to ",transition[0]," with probability ", transition[1],"at iteration ",k,"gives reward ",thisReward
+
+
+                            else:
+                                tmpValue=transition[1]*(thisReward+discount*(self.lastValue[transition[0]]))
+                                #print "tmpValue is ",tmpValue
+                                print "Moving ",state," to ",transition[0]," with probability ", transition[1],"at iteration ",k,"gives tmpValue ",tmpValue," reward is ",thisReward
+                                if tmpValue>value:
+                                    value=tmpValue
+                                    tmpPolicy=action
+
+                self.lastValue[state]=self.values[state]
+                self.values[state]=value
+                self.policy[state]=tmpPolicy
+                #print "for iteration k the value of ",state," is ",self.values[state]," with optimal policy ",self.policy[state]
+
+
+            print "k value is ",k
+            k=k+1
+            for state in allStates:
+                print "the value for state ", state, " at iteration ",k-1," is ", self.values[state], " and the policy is ", self.policy[state]
+                print "the value for last state ", state, " at iteration ",k-1," is ", self.lastValue[state], " and the policy is ", self.policy[state]
+
 
         for state in allStates:
-            if self.mdp.isTerminal(state):
-                terminalState=state
-            possibleNextActions = self.mdp.getPossibleActions(state)
-            for action in possibleNextActions:
-                possibleTransitions = self.mdp.getTransitionStatesAndProbs(state,action)
-                print "The posssible action from ",state," is ",action," with transitions ",possibleTransitions
+            print "the value for state ",state," is ",self.values[state]," and the policy is ",self.policy[state]
 
 
 
 
-        time.sleep(2)
-        try:
-            reward=self.mdp.getReward((2,2),'exit',terminalState)
-            print "reward is ", reward
+        time.sleep(0)
 
-        except(IndexError):
-            print "exception encountered"
-
-        #reward=None
-        print "terminal state is ",terminalState
 
 
 
@@ -115,6 +147,7 @@ class ValueIterationAgent(ValueEstimationAgent):
         """
         "*** YOUR CODE HERE ***"
         #util.raiseNotDefined()
+        return self.policy[state]
 
     def getPolicy(self, state):
         return self.computeActionFromValues(state)
