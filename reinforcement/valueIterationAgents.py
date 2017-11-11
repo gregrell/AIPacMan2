@@ -65,51 +65,40 @@ class ValueIterationAgent(ValueEstimationAgent):
         #print "Transition states and probs from terminal state ",transitionStates
         #print "All the states are ",allStates
         #print "the reward from moving from start to next is ",reward
-        k=0
-        while k < iterations:
+
+        for k in range(self.iterations):
             for state in allStates:
-                value=-1
                 tmpPolicy=None
-                if self.mdp.isTerminal(state):
-                    None
+                actionValues=util.Counter()
 
-                    #terminalState=state
-                    #do nothing
-                else:
-                    possibleNextActions = self.mdp.getPossibleActions(state)
-                    for action in possibleNextActions:
-                        possibleTransitions = self.mdp.getTransitionStatesAndProbs(state,action)
-                        #print "The posssible action from ",state," is ",action," with transitions ",possibleTransitions
-                        for transition in possibleTransitions:
-                            thisReward = self.mdp.getReward(state, action, transition)
-                            if self.mdp.isTerminal(transition[0]):
-                                value=thisReward
-                                print "Moving ",state," to ",transition[0]," with probability ", transition[1],"at iteration ",k,"gives reward ",thisReward
+                possibleNextActions = self.mdp.getPossibleActions(state)
+                for action in possibleNextActions:
+                    possibleTransitions = self.mdp.getTransitionStatesAndProbs(state,action)
+                    #print "The posssible action from ",state," is ",action," with transitions ",possibleTransitions
+                    tmpValue=0
+                    for transition in possibleTransitions:
+                        thisReward = self.mdp.getReward(state, action, transition)
+                        tmpValue+=transition[1]*(thisReward+self.discount*(self.values[transition[0]]))
+                        #print "tmpValue is ",tmpValue
+                        #print "Moving ",state," to ",transition[0]," with probability ", transition[1],"at iteration ",k,"gives tmpValue ",tmpValue," reward is ",thisReward
+                        actionValues[action]=tmpValue
 
-
-                            else:
-                                tmpValue=transition[1]*(thisReward+discount*(self.lastValue[transition[0]]))
-                                #print "tmpValue is ",tmpValue
-                                print "Moving ",state," to ",transition[0]," with probability ", transition[1],"at iteration ",k,"gives tmpValue ",tmpValue," reward is ",thisReward
-                                if tmpValue>value:
-                                    value=tmpValue
-                                    tmpPolicy=action
-
-                self.lastValue[state]=self.values[state]
-                self.values[state]=value
+                #self.lastValue[state]=self.values[state]
+                print "action values ",actionValues
+                self.values[state]=actionValues[actionValues.argMax()]
+                #print self.values[state],"is self.values[state]"
                 self.policy[state]=tmpPolicy
                 #print "for iteration k the value of ",state," is ",self.values[state]," with optimal policy ",self.policy[state]
 
 
-            print "k value is ",k
-            k=k+1
-            for state in allStates:
-                print "the value for state ", state, " at iteration ",k-1," is ", self.values[state], " and the policy is ", self.policy[state]
-                print "the value for last state ", state, " at iteration ",k-1," is ", self.lastValue[state], " and the policy is ", self.policy[state]
+        #print "k value is ",k
+        #for state in allStates:
+            #print "the value for state ", state, " at iteration ",k-1," is ", self.values[state], " and the policy is ", self.policy[state]
+            #print "the value for last state ", state, " at iteration ",k-1," is ", self.lastValue[state], " and the policy is ", self.policy[state]
 
 
-        for state in allStates:
-            print "the value for state ",state," is ",self.values[state]," and the policy is ",self.policy[state]
+    #for state in allStates:
+        #print "the value for state ",state," is ",self.values[state]," and the policy is ",self.policy[state]
 
 
 
