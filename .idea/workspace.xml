@@ -16,8 +16,8 @@
       <file leaf-file-name="valueIterationAgents.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/reinforcement/valueIterationAgents.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="85" column="17" lean-forward="false" selection-start-line="85" selection-start-column="17" selection-end-line="85" selection-end-column="17" />
+            <state relative-caret-position="595">
+              <caret line="89" column="0" lean-forward="true" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
               <folding>
                 <element signature="e#678#699#0" expanded="true" />
               </folding>
@@ -28,7 +28,7 @@
       <file leaf-file-name="util.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/reinforcement/util.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4199">
+            <state relative-caret-position="84">
               <caret line="250" column="57" lean-forward="false" selection-start-line="250" selection-start-column="57" selection-end-line="250" selection-end-column="57" />
               <folding />
             </state>
@@ -266,14 +266,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/reinforcement/util.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4199">
-          <caret line="250" column="57" lean-forward="false" selection-start-line="250" selection-start-column="57" selection-end-line="250" selection-end-column="57" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/reinforcement/mdp.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="476">
@@ -282,10 +274,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/reinforcement/util.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="250" column="57" lean-forward="false" selection-start-line="250" selection-start-column="57" selection-end-line="250" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/reinforcement/valueIterationAgents.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="85" column="17" lean-forward="false" selection-start-line="85" selection-start-column="17" selection-end-line="85" selection-end-column="17" />
+        <state relative-caret-position="595">
+          <caret line="89" column="0" lean-forward="true" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
           <folding>
             <element signature="e#678#699#0" expanded="true" />
           </folding>

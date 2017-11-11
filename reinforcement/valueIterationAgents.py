@@ -83,12 +83,9 @@ class ValueIterationAgent(ValueEstimationAgent):
                         #print "Moving ",state," to ",transition[0]," with probability ", transition[1],"at iteration ",k,"gives tmpValue ",tmpValue," reward is ",thisReward
                         actionValues[action]=tmpValue
 
-                #self.lastValue[state]=self.values[state]
-                print "action values ",actionValues
                 self.values[state]=actionValues[actionValues.argMax()]
-                #print self.values[state],"is self.values[state]"
+                tmpPolicy=actionValues.argMax()
                 self.policy[state]=tmpPolicy
-                #print "for iteration k the value of ",state," is ",self.values[state]," with optimal policy ",self.policy[state]
 
 
         #print "k value is ",k
