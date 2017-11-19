@@ -4,7 +4,7 @@
 # educational purposes provided that (1) you do not distribute or publish
 # solutions, (2) you retain this notice, and (3) you provide clear
 # attribution to UC Berkeley, including a link to http://ai.berkeley.edu.
-# 
+#
 # Attribution Information: The Pacman AI projects were developed at UC Berkeley.
 # The core projects and autograders were primarily created by John DeNero
 # (denero@cs.berkeley.edu) and Dan Klein (klein@cs.berkeley.edu).
@@ -43,10 +43,7 @@ class QLearningAgent(ReinforcementAgent):
         ReinforcementAgent.__init__(self, **args)
 
         "*** YOUR CODE HERE ***"
-        print self.epsilon," is epsilon"
-        print self.alpha
-        print self.discount
-
+       
         self.qValues = util.Counter()
 
 
@@ -89,6 +86,9 @@ class QLearningAgent(ReinforcementAgent):
         "*** YOUR CODE HERE ***"
         #util.raiseNotDefined()
         legalActions = self.getLegalActions(state)
+        if len(legalActions)==0:
+            return None
+
         bestAction = util.Counter()
         for action in legalActions:
             bestAction[action] = self.getQValue(state, action)
@@ -124,7 +124,7 @@ class QLearningAgent(ReinforcementAgent):
                 action=random.choice(legalActions)
 
 
-        print "action selected is ",action
+        #print "action selected is ",action
         return action
 
     def update(self, state, action, nextState, reward):
@@ -139,7 +139,10 @@ class QLearningAgent(ReinforcementAgent):
         "*** YOUR CODE HERE ***"
         #util.raiseNotDefined()
         #print "update was called with ",state," state ",action," action ",nextState," next state ",reward," reward"
-        self.qValues[state,action]=reward+(self.discount*self.computeValueFromQValues(nextState))
+
+        oldV = self.qValues[state,action]
+        newV = reward + (self.discount * self.computeValueFromQValues(nextState))
+        self.qValues[state,action] = (1-self.alpha) * oldV + (self.alpha * newV)
 
 
     def getPolicy(self, state):
