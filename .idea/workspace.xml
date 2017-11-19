@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="75afe139-d5f4-4a3a-9b3b-bb9885ac49c3" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reinforcement/test_cases/q4/1-tinygrid.test_output" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reinforcement/test_cases/q4/2-tinygrid-noisy.test_output" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reinforcement/test_cases/q4/3-bridge.test_output" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reinforcement/test_cases/q4/4-discountgrid.test_output" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/reinforcement/analysis.py" afterPath="$PROJECT_DIR$/reinforcement/analysis.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/reinforcement/qlearningAgents.py" afterPath="$PROJECT_DIR$/reinforcement/qlearningAgents.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -59,11 +56,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="qlearningAgents.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="qlearningAgents.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/reinforcement/qlearningAgents.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="45" column="7" lean-forward="false" selection-start-line="45" selection-start-column="7" selection-end-line="45" selection-end-column="7" />
+            <state relative-caret-position="522">
+              <caret line="123" column="20" lean-forward="false" selection-start-line="123" selection-start-column="20" selection-end-line="123" selection-end-column="20" />
               <folding>
                 <element signature="e#667#685#0" expanded="true" />
               </folding>
@@ -71,16 +68,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="analysis.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="analysis.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/reinforcement/analysis.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-232">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <marker date="1511100571000" expanded="true" signature="828:874" ph="..." />
-                <marker date="1511100571000" expanded="true" signature="1805:1909" ph="..." />
-                <marker date="1511100571000" expanded="true" signature="1927:2072" ph="..." />
-              </folding>
+            <state relative-caret-position="758">
+              <caret line="68" column="25" lean-forward="false" selection-start-line="68" selection-start-column="25" selection-end-line="68" selection-end-column="25" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -96,6 +89,7 @@
         <option value="$PROJECT_DIR$/reinforcement/reinforcementTestClasses.py" />
         <option value="$PROJECT_DIR$/reinforcement/valueIterationAgents.py" />
         <option value="$PROJECT_DIR$/reinforcement/qlearningAgents.py" />
+        <option value="$PROJECT_DIR$/reinforcement/analysis.py" />
       </list>
     </option>
   </component>
@@ -212,18 +206,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/reinforcement/analysis.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-232">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1511100571000" expanded="true" signature="828:874" ph="..." />
-            <marker date="1511100571000" expanded="true" signature="1805:1909" ph="..." />
-            <marker date="1511100571000" expanded="true" signature="1927:2072" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/reinforcement/util.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="645">
@@ -260,11 +242,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/reinforcement/qlearningAgents.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="45" column="7" lean-forward="false" selection-start-line="45" selection-start-column="7" selection-end-line="45" selection-end-column="7" />
+        <state relative-caret-position="522">
+          <caret line="123" column="20" lean-forward="false" selection-start-line="123" selection-start-column="20" selection-end-line="123" selection-end-column="20" />
           <folding>
             <element signature="e#667#685#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/reinforcement/analysis.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="758">
+          <caret line="68" column="25" lean-forward="false" selection-start-line="68" selection-start-column="25" selection-end-line="68" selection-end-column="25" />
+          <folding />
         </state>
       </provider>
     </entry>

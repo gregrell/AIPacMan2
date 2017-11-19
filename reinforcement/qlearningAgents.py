@@ -43,7 +43,7 @@ class QLearningAgent(ReinforcementAgent):
         ReinforcementAgent.__init__(self, **args)
 
         "*** YOUR CODE HERE ***"
-       
+
         self.qValues = util.Counter()
 
 
@@ -119,9 +119,9 @@ class QLearningAgent(ReinforcementAgent):
             action = self.computeActionFromQValues(state)
             coinToss=util.flipCoin(self.epsilon)
             if coinToss:
-                None
-            else:
                 action=random.choice(legalActions)
+            else:
+                None
 
 
         #print "action selected is ",action
